@@ -1,0 +1,22 @@
+{
+  "name": "lou-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "api-ai-botkit": "^1.1.1",
+    "apiai": "^2.0.7",
+    "async": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "botkit": "0.0.12",
+    "cors": "^2.8.4",
+    "html-entities": "^1.2.0",
+    "node-uuid": "^1.4.7",
+    "ws": "^3.3.1"
+  }
+}
