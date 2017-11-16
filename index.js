@@ -1,13 +1,13 @@
 'use strict';
 const WebSocket = require('ws');
 const http = require('http');
+const express = require('express');
+const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 const apiai = require('apiai');
 const apiAiAccessToken = process.env.API_AI_ACCESS_TOKEN;
 const apiAiService = apiai(apiAiAccessToken);
-const express = require('express')
-const app = express()
 var cors = require('cors');
 const url = require('url');
 
@@ -60,6 +60,6 @@ wss.on('connection', function connection(ws, req) {
   });
 });
 
-server.listen(8080, function listening() {
+server.listen(process.env.LOU_PORT, function listening() {
   console.log('Listening on %d', server.address().port);
 });
