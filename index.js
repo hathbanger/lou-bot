@@ -1,6 +1,8 @@
 'use strict';
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: process.env.LOU_PORT });
+
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 const apiai = require('apiai');
 const apiAiAccessToken = process.env.API_AI_ACCESS_TOKEN;
 const apiAiService = apiai(apiAiAccessToken);
@@ -56,4 +58,8 @@ wss.on('connection', function connection(ws, req) {
         request.on('error', (error) => console.error(error));
         request.end();         
   });
+});
+
+server.listen(8080, function listening() {
+  console.log('Listening on %d', server.address().port);
 });
