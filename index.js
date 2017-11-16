@@ -1,6 +1,6 @@
 'use strict';
 const WebSocket = require('ws');
-
+const http = require('http');
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 const apiai = require('apiai');
