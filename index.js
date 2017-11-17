@@ -41,18 +41,16 @@ wss.on('connection', function connection(ws, req) {
         });
 
         request.on('response', (response) => {
-            console.log("response", response.result.fulfillment);
+            // console.log("response", response.result.fulfillment);
             if (isDefined(response.result)) {
                 let responseText = response.result.fulfillment.speech;
                 let responseData = response.result.fulfillment.data;
-                if (isDefined(responseData) && isDefined(responseData.slack)) {
-                    console.log(message, response.result.fulfillment);
-                } else if (isDefined(responseText)) {
+                if (isDefined(responseText)) {
                     response.result.fulfillment.messages.forEach(function(msg, index){
-                        console.log(message, response);
+                        console.log(message, response.result.contexts[0].parameters);
                         setTimeout(function(){                 
                             ws.send(msg.speech);
-                        }, index * response.result.fulfillment.messages[index].speech.length * 50);     
+                        }, index * 1500);     
                     })
                 }
             }
